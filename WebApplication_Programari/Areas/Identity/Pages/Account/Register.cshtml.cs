@@ -75,6 +75,16 @@ namespace WebApplication_Programari.Areas.Identity.Pages.Account
             ///     directly from your code. This API may change or be removed in future releases.
             /// </summary>
             [Required]
+            [DataType(DataType.Text)]
+            [Display(Name ="Prenume")]
+            public string FirstName {  get; set; }
+
+            [Required]
+            [DataType(DataType.Text)]
+            [Display(Name = "Nume")]
+            public string LastName { get; set; }
+
+            [Required]
             [EmailAddress]
             [Display(Name = "Email")]
             public string Email { get; set; }
@@ -113,6 +123,8 @@ namespace WebApplication_Programari.Areas.Identity.Pages.Account
             if (ModelState.IsValid)
             {
                 var user = CreateUser();
+                await _userStore.SetUserNameAsync(user, Input.FirstName, CancellationToken.None);
+                await _userStore.SetUserNameAsync(user, Input.LastName, CancellationToken.None);
 
                 await _userStore.SetUserNameAsync(user, Input.Email, CancellationToken.None);
                 await _emailStore.SetEmailAsync(user, Input.Email, CancellationToken.None);

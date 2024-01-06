@@ -1,14 +1,21 @@
 ﻿@page
 @model WebApplication_Programari.Pages.Doctori.IndexModel
+@using Microsoft.AspNetCore.Identity
 
+@inject SignInManager<IdentityUser> SignInManager
+@inject UserManager<IdentityUser> UserManager
 @{
     ViewData["Title"] = "Index";
 }
 
 <h1>Echipa noastra</h1>
-<p>
-    <a asp-page="Create" class="custom-button">Adauga Doctor</a>
-</p>
+@if (User.IsInRole("Admin"))
+{
+    <p>
+        <a asp-page="Create" class="custom-button">Adauga Doctor</a>
+    </p>
+}
+
 <div style="display:flex; gap:20px;">
     @foreach (var item in Model.Doctor)
     {
@@ -25,11 +32,15 @@
             <p>
                 <strong>Descriere:</strong> @Html.DisplayFor(modelItem => item.Descriere)
             </p>
-            <p>
-                <a asp-page="./Edit" asp-route-id="@item.ID">Modifica</a> |
-                <a asp-page="./Details" asp-route-id="@item.ID">Detalii</a> |
-                <a asp-page="./Delete" asp-route-id="@item.ID">Sterge</a>
-            </p>
+            @if (User.IsInRole("Admin"))
+            {
+                <p>
+                    <a asp-page="./Edit" asp-route-id="@item.ID">Modifica</a> |
+                    <a asp-page="./Details" asp-route-id="@item.ID">Detalii</a> |
+                    <a asp-page="./Delete" asp-route-id="@item.ID">Sterge</a>
+                </p>
+            }
+            
         </div>
     }
 </div>

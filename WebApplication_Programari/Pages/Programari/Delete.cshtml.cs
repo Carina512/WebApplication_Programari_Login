@@ -25,9 +25,9 @@ namespace WebApplication_Programari.Pages.Programari
         public List<SelectListItem> DoctorList { get; set; }
         public async Task<IActionResult> OnGetAsync(int? id)
         {
-            DoctorList = _context.Doctor
-           .Select(d => new SelectListItem { Value = d.ID.ToString(), Text = d.FullName })
-           .ToList(); 
+           // DoctorList = _context.Doctor
+          // .Select(d => new SelectListItem { Value = d.ID.ToString(), Text = d.FullName })
+           //.ToList(); 
             if (id == null || _context.Programare == null)
             {
                 return NotFound();
