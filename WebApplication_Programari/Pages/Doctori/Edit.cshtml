@@ -1,0 +1,50 @@
+﻿@page
+@model WebApplication_Programari.Pages.Doctori.EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Modifica informatiile</h1>
+
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Doctor.ID" />
+            <div class="form-group">
+                <label asp-for="Doctor.Nume" class="control-label"></label>
+                <input asp-for="Doctor.Nume" class="form-control" />
+                <span asp-validation-for="Doctor.Nume" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Doctor.Prenume" class="control-label"></label>
+                <input asp-for="Doctor.Prenume" class="form-control" />
+                <span asp-validation-for="Doctor.Prenume" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Doctor.Specializare" class="control-label"></label>
+                <input asp-for="Doctor.Specializare" class="form-control" />
+                <span asp-validation-for="Doctor.Specializare" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Doctor.Descriere" class="control-label"></label>
+                <input asp-for="Doctor.Descriere" class="form-control" />
+                <span asp-validation-for="Doctor.Descriere" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Salveaza" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index">Inapoi</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

@@ -1,0 +1,38 @@
+﻿@page
+@model WebApplication_Programari.Pages.Doctori.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Echipa noastra</h1>
+<p>
+    <a asp-page="Create" class="custom-button">Adauga Doctor</a>
+</p>
+<div style="display:flex; gap:20px;">
+    @foreach (var item in Model.Doctor)
+    {
+        <div style="border: 1px solid #ccc; padding: 10px; margin-bottom: 10px; border-radius:10px; display: flex; flex-direction: column; width:300px; overflow:auto; background-color:white; box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);">
+            <p>
+                <strong>Nume:</strong> @Html.DisplayFor(modelItem => item.Nume)
+            </p>
+            <p>
+                <strong>Prenume:</strong> @Html.DisplayFor(modelItem => item.Prenume)
+            </p>
+            <p>
+                <strong>Specializare:</strong> @Html.DisplayFor(modelItem => item.Specializare)
+            </p>
+            <p>
+                <strong>Descriere:</strong> @Html.DisplayFor(modelItem => item.Descriere)
+            </p>
+            <p>
+                <a asp-page="./Edit" asp-route-id="@item.ID">Modifica</a> |
+                <a asp-page="./Details" asp-route-id="@item.ID">Detalii</a> |
+                <a asp-page="./Delete" asp-route-id="@item.ID">Sterge</a>
+            </p>
+        </div>
+    }
+</div>
+
+
+

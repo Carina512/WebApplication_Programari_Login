@@ -1,0 +1,56 @@
+﻿
+@page
+@model WebApplication_Programari.Pages.Reviews.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<!-- Aici începe secțiunea de stil -->
+<style>
+    .custom-button {
+        display: inline-block;
+        padding: 10px 20px;
+        text-align: center;
+        text-decoration: none;
+        color: #007bff;
+        background-color:mintcream;
+        border: 1px solid #007bff;
+        border-radius: 4px;
+        transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+    }
+
+        .custom-button:hover {
+            background-color: #0056b3;
+            border-color: #0056b3;
+        }
+
+</style>
+<h1>Ofera-ne un review!</h1>
+<p>
+    <a asp-page="Create" class="custom-button">Spune-ne despre experiența ta la cabinet!</a>
+
+</p>
+<div style="display:flex;gap:20px">
+    @foreach (var item in Model.Review)
+    {
+        <div style="border: 1px solid #ccc; padding: 10px; margin-bottom: 10px; border-radius:10px; display: flex; flex-direction: column; width:300px; overflow:auto; background-color:white; box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);">
+            <p>
+                <strong>Name:</strong> @Html.DisplayFor(modelItem => item.Name)
+            </p>
+            <p>
+                <strong>Opinie:</strong> @Html.DisplayFor(modelItem => item.Opinie)
+            </p>
+            <p>
+                <strong>Rating:</strong>
+                <span>@Model.GetStarRating(item.Nota)</span>
+            </p>
+
+            <p>
+                <a asp-page="./Edit" asp-route-id="@item.ID">Modifica</a> |
+                <a asp-page="./Details" asp-route-id="@item.ID">Detalii</a> |
+                <a asp-page="./Delete" asp-route-id="@item.ID">Sterge</a>
+            </p>
+        </div>
+    }
+</div>

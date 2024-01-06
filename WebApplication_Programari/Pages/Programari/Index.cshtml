@@ -1,0 +1,43 @@
+﻿@page
+@model WebApplication_Programari.Pages.Programari.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Programarile Tale</h1>
+
+<p>
+    <a asp-page="Create" class="custom-button">Fa-ti o programare!</a>
+</p>
+<div style="display:flex;gap:20px">
+    @foreach (var item in Model.Programare)
+    {
+        <div style="border: 1px solid #ccc; padding: 10px; margin-bottom: 10px; border-radius:10px; display: flex; flex-direction: column; width:300px; overflow:auto; background-color:white; box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);">
+            
+            <div style="flex: 1;">
+                <p><strong>Nume:</strong> @item.Nume</p>
+                <p><strong>Prenume:</strong> @item.Prenume</p>
+                <p><strong>CNP:</strong> @item.CNP</p>
+                <p><strong>Tip animal:</strong> @item.TipAnimal</p>
+                @if (item.Doctor != null)
+                {
+                    <p><strong>Medicul ales:</strong> @item.Doctor.FullName</p>
+                }
+                else
+                {
+                    <p><strong>Medicul ales:</strong> Nu există informații despre medic</p>
+                }
+
+                <p><strong>Data programarii:</strong> @item.Data</p>
+            
+
+                <p>
+                    <a asp-page="./Edit" asp-route-id="@item.ID">Modifica programarea</a> |
+                    <a asp-page="./Details" asp-route-id="@item.ID">Detalii programare</a> |
+                    <a asp-page="./Delete" asp-route-id="@item.ID">Sterge programarea</a>
+                </p>
+            </div>
+        </div>
+    }
+</div>

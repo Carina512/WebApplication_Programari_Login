@@ -1,0 +1,62 @@
+﻿@page
+@model WebApplication_Programari.Pages.Programari.CreateModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Completeaza formularul</h1>
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Programare.Nume" class="control-label"></label>
+                <input asp-for="Programare.Nume" class="form-control" />
+                <span asp-validation-for="Programare.Nume" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Programare.Prenume" class="control-label"></label>
+                <input asp-for="Programare.Prenume" class="form-control" />
+                <span asp-validation-for="Programare.Prenume" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Programare.CNP" class="control-label"></label>
+                <input asp-for="Programare.CNP" class="form-control" />
+                <span asp-validation-for="Programare.CNP" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Programare.TipAnimal" class="control-label"></label>
+                <input asp-for="Programare.TipAnimal" class="form-control" />
+                <span asp-validation-for="Programare.TipAnimal" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Programare.DoctorID" class="control-label"></label>
+                <select asp-for="Programare.DoctorID" class="form-control" asp-items="Model.DoctorList">
+                    <option value="">Select a doctor</option>
+                </select>
+                <span asp-validation-for="Programare.DoctorID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Programare.Data" class="control-label"></label>
+                <input asp-for="Programare.Data" class="form-control" />
+                <span asp-validation-for="Programare.Data" class="text-danger"></span>
+            </div>
+           
+
+            <div class="form-group">
+                <input type="submit" value="Creeaza" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index">Inapoi la programari</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
