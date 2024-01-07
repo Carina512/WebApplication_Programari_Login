@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using WebApplication_Programari.Data;
 
@@ -11,9 +12,10 @@ using WebApplication_Programari.Data;
 namespace WebApplication_Programari.Migrations
 {
     [DbContext(typeof(WebApplication_ProgramariContext))]
-    partial class WebApplication_ProgramariContextModelSnapshot : ModelSnapshot
+    [Migration("20240107193433_NotificariUseri")]
+    partial class NotificariUseri
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

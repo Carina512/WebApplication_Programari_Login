@@ -61,3 +61,8 @@ button.accept-policy {
   white-space: nowrap;
   line-height: 60px;
 }
+hr {
+    border: none;
+    height: 2px; /* Schimbă grosimea liniei după preferință */
+    background-color: #ff6a00;
+}

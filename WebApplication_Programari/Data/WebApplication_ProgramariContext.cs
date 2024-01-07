@@ -19,5 +19,9 @@ namespace WebApplication_Programari.Data
         public DbSet<WebApplication_Programari.Models.Doctor>? Doctor { get; set; }
 
         public DbSet<WebApplication_Programari.Models.Review>? Review { get; set; }
+
+        public DbSet<WebApplication_Programari.Models.Utilizatori>? Utilizatori { get; set; }
+
+        public DbSet<WebApplication_Programari.Models.Notificare>? Notificare { get; set; }
     }
 }

@@ -1,0 +1,54 @@
+﻿@page
+@model WebApplication_Programari.Pages.Notificari.CreateModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>Notificare</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Notificare.id" class="control-label"></label>
+                <input asp-for="Notificare.id" class="form-control" />
+                <span asp-validation-for="Notificare.id" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Notificare.Nume" class="control-label"></label>
+                <input asp-for="Notificare.Nume" class="form-control" />
+                <span asp-validation-for="Notificare.Nume" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Notificare.Prenume" class="control-label"></label>
+                <input asp-for="Notificare.Prenume" class="form-control" />
+                <span asp-validation-for="Notificare.Prenume" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Notificare.mesaj" class="control-label"></label>
+                <input asp-for="Notificare.mesaj" class="form-control" />
+                <span asp-validation-for="Notificare.mesaj" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Notificare.data" class="control-label"></label>
+                <input asp-for="Notificare.data" class="form-control" />
+                <span asp-validation-for="Notificare.data" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

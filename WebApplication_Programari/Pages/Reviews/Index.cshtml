@@ -27,13 +27,14 @@
 
 </style>
 <h1>Ofera-ne un review!</h1>
-
-
+<hr style="border: none; height: 2px; background-color: #ff6a00;">
 
     <p>
         <a asp-page="Create" class="custom-button">Aici!</a>
 
     </p>
+
+
 
 
 <div style="display:flex;gap:20px">
@@ -53,7 +54,7 @@
             @if (User.IsInRole("Admin"))
             {
                 <p>
-                    <a asp-page="./Edit" asp-route-id="@item.ID">Modifica</a> |
+                    
                     <a asp-page="./Details" asp-route-id="@item.ID">Detalii</a> |
                     <a asp-page="./Delete" asp-route-id="@item.ID">Sterge</a>
                 </p>
