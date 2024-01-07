@@ -1,11 +1,26 @@
 ﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
 for details on configuring this project to bundle and minify static web assets. */
+/* Stilizare pentru bara de navigare */
+.navbar {
+    background-color: #ffffff; /* Schimbă culoarea de fundal a barei de navigare */
+    border-bottom: 1px solid #dee2e6; /* Adaugă o linie de separare sub bara de navigare */
+}
+
+/* Stilizare pentru linkurile din navbar */
+.navbar-nav .nav-link {
+    color: #343a40; /* Schimbă culoarea textului linkurilor din navbar */
+    font-weight: bold; /* Adaugă un font bold pentru linkuri */
+    margin-right: 15px; /* Adaugă spațiu între linkuri */
+}
+
+  
+
 
 a.navbar-brand {
-  white-space: normal;
-  text-align: center;
-  word-break: break-all;
- 
+    white-space: normal;
+    text-align: center;
+    word-break: break-all;
+}
 
 a {
   color: #0077cc;

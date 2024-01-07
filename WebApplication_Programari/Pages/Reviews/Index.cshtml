@@ -29,14 +29,17 @@
 <h1>Ofera-ne un review!</h1>
 
 
-        <p>
-            <a asp-page="Create" class="custom-button">Spune-ne despre experiența ta la cabinet!</a>
 
-        </p>
+    <p>
+        <a asp-page="Create" class="custom-button">Aici!</a>
+
+    </p>
+
+
 <div style="display:flex;gap:20px">
     @foreach (var item in Model.Review)
     {
-        <div style="border: 1px solid #ccc; padding: 10px; margin-bottom: 10px; border-radius:10px; display: flex; flex-direction: column; width:300px; overflow:auto; background-color:white; box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);">
+        <div style="border: 1px solid #ccc; padding: 10px; margin-bottom: 10px; border-radius:10px; display: flex; flex-direction: column; width:300px; overflow:auto; background-color:white; box-shadow: 0 8px 12px #ff6a00;">
             <p>
                 <strong>Name:</strong> @Html.DisplayFor(modelItem => item.Name)
             </p>
@@ -47,7 +50,7 @@
                 <strong>Rating:</strong>
                 <span>@Model.GetStarRating(item.Nota)</span>
             </p>
-            @if (User.IsInRole("Admin") || User.IsInRole("User"))
+            @if (User.IsInRole("Admin"))
             {
                 <p>
                     <a asp-page="./Edit" asp-route-id="@item.ID">Modifica</a> |

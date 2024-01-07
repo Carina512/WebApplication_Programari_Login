@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.ModelBinding;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using WebApplication_Programari.Data;
@@ -52,9 +53,11 @@ namespace WebApplication_Programari.Pages.Doctori
 
             if (doctor != null)
             {
-                Doctor = doctor;
-                _context.Doctor.Remove(Doctor);
-                await _context.SaveChangesAsync();
+                
+                    Doctor = doctor;
+                    _context.Doctor.Remove(Doctor);
+                    await _context.SaveChangesAsync();
+                
             }
 
             return RedirectToPage("./Index");

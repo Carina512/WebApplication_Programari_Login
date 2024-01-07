@@ -11,7 +11,7 @@ using WebApplication_Programari.Models;
 
 namespace WebApplication_Programari.Pages.Programari
 {
- 
+    [Authorize]
    
     public class IndexModel : PageModel
     {
